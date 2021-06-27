@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -15,7 +16,8 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $room = Room::all();
+    return view('home', ['room' => $room]);
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])

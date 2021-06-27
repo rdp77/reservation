@@ -31,6 +31,7 @@ mix.styles(
         "resources/css/select2.min.css",
         "resources/css/chocolat.css",
         "resources/css/bootstrap-tagsinput.css",
+        "resources/css/selectric.css",
         "resources/css/style.css",
         "resources/css/summernote-bs4.css",
         "resources/css/components.css",
@@ -65,6 +66,7 @@ mix.scripts(
         "resources/js/jquery.chocolat.js",
         "resources/js/scripts.js",
         "resources/js/summernote-bs4.js",
+        "resources/js/jquery.selectric.min.js",
     ],
     "public/assets.js"
 ).version();
