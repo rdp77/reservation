@@ -12,69 +12,10 @@
                         </h4>
                         <p class="text-muted">
                             {{ __('Sebelum menyewa tempat, Anda diharuskan untuk 
-                            melakukan booking secara online untuk mengecek ketersediaan waktu 
+                            melakukan penyewaan secara online untuk mengecek ketersediaan waktu 
                             dan tempat yang ada') }}
                         </p>
-                        <form method="POST" action="#" class="needs-validation" novalidate="">
-                            <div class="form-group">
-                                <label>{{ __('Tanggal') }}</label>
-                                <input type="date" class="form-control" name="tgl" tabindex="1" required autofocus>
-                                @error('tgl')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <div class="d-block">
-                                    <label class="control-label">{{ __('Sesi Acara') }}</label>
-                                </div>
-                                <input class="form-control" name="session" tabindex="2" required>
-                                @error('session')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <div class="d-block">
-                                    <label class="control-label">{{ __('Ruangan') }}</label>
-                                </div>
-                                <select class="form-control selectric" name="room" tabindex="3" required>
-                                    @foreach ($room as $r)
-                                    <option value="{{ $r->id }}">
-                                        {{ $r->name }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                                @error('room')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            {{-- <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="remember" class="custom-control-input" tabindex="3"
-                                        id="remember-me">
-                                    <label class="custom-control-label" for="remember-me">Remember Me</label>
-                                </div>
-                            </div> --}}
-
-                            <div class="form-group text-right">
-                                <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
-                                    {{ __('Booking') }}
-                                </button>
-                            </div>
-
-                            {{-- <div class="mt-5 text-center">
-                                Don't have an account? <a href="auth-register.html">Create new one</a>
-                            </div> --}}
-                        </form>
-
+                        @yield('content')
                         <div class="text-center mt-5 text-small">
                             {{ __('Copyright') }}
                             <span style="color: grey">
