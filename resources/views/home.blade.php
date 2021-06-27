@@ -3,7 +3,7 @@
 @section('titleContent', __('auth.login'))
 
 @section('content')
-<form method="POST" action="#" class="needs-validation" novalidate="">
+<form method="POST" action="#" class="needs-validation">
     <div class="form-group">
         <label>{{ __('Tanggal') }}</label>
         <div class="input-group">
