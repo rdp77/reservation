@@ -16,6 +16,7 @@ class Reservation extends Model
         'code',
         'datetime',
         'room',
-        'details'
+        'details',
+        'check-out'
     ];
 }

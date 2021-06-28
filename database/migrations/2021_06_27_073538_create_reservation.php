@@ -19,6 +19,7 @@ class CreateReservation extends Migration
             $table->dateTime('datetime');
             $table->foreignId('room');
             $table->foreignId('details');
+            $table->enum('check-out', ['Iya', 'Tidak']);
         });
     }
 

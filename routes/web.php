@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +15,10 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    $room = Room::all();
-    return view('home', ['room' => $room]);
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/package', [HomeController::class, 'package']);
+Route::get('/check-in', [HomeController::class, 'checkIn']);
+Route::get('/payment', [HomeController::class, 'payment']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
