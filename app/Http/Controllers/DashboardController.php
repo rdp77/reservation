@@ -50,4 +50,9 @@ class DashboardController extends Controller
             'added_at' => date("Y-m-d H:i:s"),
         ]);
     }
+
+    public function rental()
+    {
+        return view('pages.backend.rental.indexRental');
+    }
 }

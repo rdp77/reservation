@@ -30,6 +30,11 @@
                     </li>
                 </ul>
             </li>
+            <li class="{{ Request::route()->getName() == 'rental' ? 'active' : '' }}">
+                <a href="{{ route('rental') }}" class="nav-link">
+                    <i class="fas fa-sign-in-alt"></i><span>{{ __('Penyewaan') }}</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

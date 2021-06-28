@@ -22,6 +22,8 @@ Route::get('/payment', [HomeController::class, 'payment']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+Route::get('/rental', [DashboardController::class, 'rental'])
+    ->name('rental');
 Route::get('/log', [DashboardController::class, 'log'])
     ->name('dashboard.log');
 
