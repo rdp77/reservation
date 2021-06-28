@@ -15,10 +15,9 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    $room = Room::all();
-    return view('home', ['room' => $room]);
-});
+Route::get('/', 'HomeController@index');
+Route::get('/check-in', 'HomeController@checkIn');
+Route::get('/check-in', 'HomeController@payment');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');

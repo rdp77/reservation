@@ -1,13 +1,15 @@
-@include('layouts.components.header')
+@include('layouts.backend.components.header')
 
-<body class="min-vh-100 background-walk-y position-relative overlay-gradient-bottom"
-    data-background="{{ asset('bg.jpg') }}">
+<body>
     <div id="app">
         <section class="section">
             <div class="container mt-5">
                 <div class="row">
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        <div class="login-brand">
+                            <img src="{{ asset('logo.png') }}" alt="logo" width="120" class="rounded-circle">
+                        </div>
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4>@yield('titleContent')</h4>
@@ -18,14 +20,14 @@
                             </div>
                         </div>
                         <div class="simple-footer">
-                            @include('layouts.backend.components.credit')
+                            @include('layouts.backend.components.footer')
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    @include('layouts.components.footer')
+    @include('layouts.backend.components.footer')
     @yield('script')
 </body>
 
