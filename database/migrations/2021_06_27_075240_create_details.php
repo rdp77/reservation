@@ -20,7 +20,6 @@ class CreateDetails extends Migration
             $table->string('email');
             $table->string('phone');
             $table->enum('wa', ['Tidak Ada', 'Ada']);
-            $table->integer('total');
             $table->integer('price');
             $table->enum('status', ['Belum Lunas', 'Lunas']);
         });
