@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-// Function
+// Front End
 Route::post('/package', [HomeController::class, 'package'])
     ->name('reservation.check');
 Route::post('/check-in', [HomeController::class, 'checkIn'])
@@ -36,7 +36,7 @@ Route::match(['get'], 'payment', function () {
     return Redirect::route('home');
 });
 
-
+// Back End
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 Route::get('/rental', [DashboardController::class, 'rental'])
