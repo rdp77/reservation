@@ -16,7 +16,7 @@
                     <h4>{{ __('Total Admin') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ __('10') }}
+                    {{ $users }}
                 </div>
             </div>
         </div>
@@ -24,14 +24,14 @@
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
             <div class="card-icon bg-danger">
-                <i class="far fa-newspaper"></i>
+                <i class="far fa-handshake"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                    <h4>{{ __('News') }}</h4>
+                    <h4>{{ __('Total Penyewa') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ __('42') }}
+                    {{ $rental }}
                 </div>
             </div>
         </div>
@@ -39,14 +39,14 @@
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
             <div class="card-icon bg-warning">
-                <i class="far fa-file"></i>
+                <i class="far fa-clock"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                    <h4>{{ __('Reports') }}</h4>
+                    <h4>{{ __('Belum Membayar') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ __('1,201') }}
+                    {{ $notPayment }}
                 </div>
             </div>
         </div>
@@ -54,14 +54,14 @@
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <div class="card card-statistic-1">
             <div class="card-icon bg-success">
-                <i class="fas fa-circle"></i>
+                <i class="fas fa-check"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                    <h4>{{ __('Online Users') }}</h4>
+                    <h4>{{ __('Sudah Membayar') }}</h4>
                 </div>
                 <div class="card-body">
-                    {{ __('47') }}
+                    {{ $payment }}
                 </div>
             </div>
         </div>

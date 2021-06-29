@@ -1,44 +1,88 @@
 @extends('layouts.backend.default')
-@section('title', __('pages.title').__(' | Master Pengguna'))
-@section('titleContent', __('Pengguna'))
-@section('breadcrumb', __('Master'))
+@section('title', __('pages.title').__(' | Data Penyewaan'))
+@section('titleContent', __('Penyewaan'))
+@section('breadcrumb', __('Data'))
 @section('morebreadcrumb')
-<div class="breadcrumb-item active">{{ __('Pengguna') }}</div>
+<div class="breadcrumb-item active">{{ __('Penyewaan') }}</div>
 @endsection
 
 @section('content')
 @include('layouts.backend.components.notification')
-<div class="row">
-    <div class="col-12">
-        <div class="card mb-0">
-            <div class="card-body">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            {{ __('Semua Penyewa') }}
-                            <span class="badge badge-white">5</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            {{ __('Belum Bayar') }}
-                            <span class="badge badge-primary">1</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            {{ __('Sudah Bayar') }}
-                            <span class="badge badge-primary">1</span>
-                            2</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+@include('pages.backend.rental.components.header')
 <div class="card mt-3">
     <div class="card-body">
-
-    </div>
+        <table class="table-striped table" id="tables" width="100%">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        {{ __('NO') }}
+                    </th>
+                    <th class="text-center">
+                        {{ __('Kode') }}
+                    </th>
+                    <th>{{ __('Tanggal') }}</th>
+                    <th>{{ __('Ruangan') }}</th>
+                    <th>{{ __('Paket') }}</th>
+                    <th>{{ __('Nama') }}</th>
+                    <th>{{ __('Alamat') }}</th>
+                    <th>{{ __('Email') }}</th>
+                    <th>{{ __('No HP') }}</th>
+                    <th>{{ __('Harga') }}</th>
+                    <th>{{ __('Status') }}</th>
+                    <th>{{ __('Aksi') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($reservation as $number => $r)
+                <tr>
+                    <td class="text-center">
+                        {{ $number+1 }}
+                    </td>
+                    <td class="text-center">
+                        {{ $r->code }}
+                    </td>
+                    <td>
+                        {{ $r->name }}
+                    </td>
+                    <td>
+                        {{-- <div class="btn-group">
+                            <form id="reset{{ $u->id }}" action="{{ route('users.reset',$u->id) }}" method="POST"
+                        class="d-inline">
+                        @csrf
+                        <button
+                            data-confirm="Apakah Anda Yakin?|Aksi ini tidak 
+                                        dapat dikembalikan dan mengubah password menjadi default yaitu '1234567890'. Apakah ingin melanjutkan?"
+                            data-confirm-yes="document.getElementById('reset{{ $u->id }}').submit();"
+                            class="btn btn-primary">
+                            {{ __('Reset Password') }}
+                        </button>
+                        </form>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-expanded="false">
+                            <span class="sr-only">{{ __('Toggle Dropdown') }}</span>
+                        </button>
+                        <div class="dropdown-menu" x-placement="bottom-start"
+                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(120px, 36px, 0px);">
+                            <a class="dropdown-item" href="{{ route('users.edit',$u->id) }}">
+                                {{ __('Edit') }}
+                            </a>
+                            <form id="del-data{{ $u->id }}" action="{{ route('users.destroy',$u->id) }}" method="POST"
+                                class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <a class="dropdown-item" style="cursor: pointer" data-confirm="Apakah Anda Yakin?|Aksi ini tidak dapat 
+                                                dikembalikan. Apakah ingin melanjutkan?"
+                                    data-confirm-yes="document.getElementById('del-data{{ $u->id }}').submit();">
+                                    {{ __('Hapus') }}
+                                </a>
+                            </form>
+                        </div>
+    </div> --}}
+    </td>
+    </tr>
+    @endforeach
+    </tbody>
+    </table>
+</div>
 </div>
 @endsection
