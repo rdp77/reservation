@@ -284,6 +284,8 @@
                     {{ __('NGGRAGAS "B"') }}
                 </span>
             </label>
+        </div>
+        <div class="selectgroup w-100">
             <label class="selectgroup-item">
                 <input type="radio" name="package" value="4" class="selectgroup-input">
                 <span class="selectgroup-button">

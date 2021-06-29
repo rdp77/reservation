@@ -37,8 +37,14 @@ class HomeController extends Controller
         ]);
     }
 
-    public function payment()
+    public function payment(Request $req)
     {
+        $this->validate($req, [
+            'code' => 'required',
+            'name' => 'required',
+            'condition' => 'required'
+        ]);
+
         return view('pages.frontend.payment');
     }
 
