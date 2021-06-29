@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
 
 // Function
 Route::post('/package', [HomeController::class, 'package'])
@@ -24,6 +26,16 @@ Route::post('/check-in', [HomeController::class, 'checkIn'])
     ->name('reservation.checkIn');
 Route::post('/payment', [HomeController::class, 'payment'])
     ->name('reservation.payment');
+Route::match(['get'], 'package', function () {
+    return Redirect::route('home');
+});
+Route::match(['get'], 'check-in', function () {
+    return Redirect::route('home');
+});
+Route::match(['get'], 'payment', function () {
+    return Redirect::route('home');
+});
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');

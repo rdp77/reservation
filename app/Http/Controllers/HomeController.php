@@ -74,7 +74,10 @@ class HomeController extends Controller
             'check-out' => 'Tidak'
         ]);
 
-        return view('pages.frontend.payment', ['price' => $price]);
+        return view('pages.frontend.payment', [
+            'price' => $price,
+            'code' => $req->code
+        ]);
     }
 
     public function getRandom()
@@ -117,7 +120,7 @@ class HomeController extends Controller
             ->select('id')
             ->orderByDesc('id')
             ->limit('1')
-            ->first()->id + 1;
+            ->first()->id;
     }
 
     function getPrice($name)

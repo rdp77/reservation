@@ -11,7 +11,8 @@
         ditentukan diatas, dengan menggunakan metode pembayaran bank BCA atas nama') }}
         <u>{{ __('Talentitya Ryzabel.') }}</u>
         {{ __(' Konfirmasi pembayaran akan kami kirimkan via whatsapp, sms, 
-        ataupun email yang sudah tertaut sebelumnya.') }}
+        ataupun email yang sudah tertaut sebelumnya. Kode pemesanan') }}
+        <mark>{{ $code }}</mark>
     </p>
     <a href="#" class="mt-4 bb">
         {{ __('Pembayaran masih belum terkonfirmasi? Hubungi CS kami') }}
