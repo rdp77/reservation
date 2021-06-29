@@ -29,7 +29,7 @@
                         <a class="nav-link" href="#">
                             {{ __('Sudah Bayar') }}
                             <span class="badge badge-primary">1</span>
-                        </a>
+                            2</a>
                     </li>
                 </ul>
             </div>

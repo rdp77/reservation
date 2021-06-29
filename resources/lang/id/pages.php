@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'title' => 'Wreative',
-    'brand' => 'WEA',
+    'title' => 'MeetPoint',
+    'brand' => 'MP',
     'edit' => 'Simpan Perubahan',
     'save' => 'Simpan',
     'delete' => 'Hapus',

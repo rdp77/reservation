@@ -20,6 +20,11 @@ Route::get('/package', [HomeController::class, 'package']);
 Route::get('/check-in', [HomeController::class, 'checkIn']);
 Route::get('/payment', [HomeController::class, 'payment']);
 
+// Function
+Route::get('/check', [HomeController::class, 'check'])
+    ->name('reservation.check');
+
+
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 Route::get('/rental', [DashboardController::class, 'rental'])

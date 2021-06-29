@@ -13,6 +13,11 @@ class HomeController extends Controller
         return view('home', ['room' => $room]);
     }
 
+    public function check(Request $req)
+    {
+        dd($req->all());
+    }
+
     public function package()
     {
         return view('pages.frontend.package');
