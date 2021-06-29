@@ -16,8 +16,8 @@ class CreateDetails extends Migration
         Schema::create('details', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address');
-            $table->string('email');
+            $table->string('address')->nullable();
+            $table->string('email')->nullable();
             $table->string('phone');
             $table->enum('wa', ['Tidak Ada', 'Ada']);
             $table->integer('price');

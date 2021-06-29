@@ -5,7 +5,7 @@
 @section('content')
 <div class="empty-state" data-height="400">
     <img src="{{ asset('img/bca.png') }}" class="img-fluid" width="400px">
-    <h2><mark>{{ __('Rp. 500.000.258') }}</mark></h2>
+    <h2><mark>{{ __('Rp. ').number_format($price) }}</mark></h2>
     <p class="lead">
         {{ __('Lakukan pembayaran sejumlah nominal yang sudah 
         ditentukan diatas, dengan menggunakan metode pembayaran bank BCA atas nama') }}
