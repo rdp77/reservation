@@ -19,6 +19,11 @@ class CreateReservation extends Migration
             $table->dateTime('datetime');
             $table->foreignId('room');
             $table->foreignId('details');
+            $table->enum('package', [
+                'PAKET NGERII', 'PAKET NGGRAGAS "A"',
+                'PAKET NGGRAGAS "B"', 'PAKET NGGRAGAS "C"',
+                'PAKET NGGRAGAS "D"', 'PAKET NGGRAGAS "E"'
+            ]);
             $table->enum('check-out', ['Iya', 'Tidak']);
         });
     }

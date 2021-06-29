@@ -18,8 +18,7 @@ class Details extends Model
         'email',
         'phone',
         'wa',
-        'total',
-        'status',
-        'price'
+        'price',
+        'status'
     ];
 }

@@ -3,7 +3,8 @@
 @section('titleContent', __('auth.login'))
 
 @section('content')
-<form method="GET" action="{{ route('reservation.check') }}" class="needs-validation">
+<form method="POST" action="{{ route('reservation.check') }}" class="needs-validation">
+    @csrf
     <div class="form-group">
         <label>{{ __('Tanggal') }}</label>
         <div class="input-group">

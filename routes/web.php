@@ -16,14 +16,13 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/package', [HomeController::class, 'package']);
-Route::get('/check-in', [HomeController::class, 'checkIn']);
 Route::get('/payment', [HomeController::class, 'payment']);
 
 // Function
-Route::get('/check', [HomeController::class, 'check'])
+Route::post('/package', [HomeController::class, 'package'])
     ->name('reservation.check');
-
+Route::post('/check-in', [HomeController::class, 'checkIn'])
+    ->name('reservation.checkIn');;
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
