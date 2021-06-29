@@ -19,6 +19,12 @@ class HomeController extends Controller
 
     public function package(Request $req)
     {
+        $this->validate($req, [
+            'tgl' => 'required|date',
+            'session' => 'required',
+            'room' => 'required',
+        ]);
+
         $date = date("Y-m-d h:i", strtotime($req->tgl . $req->session));
         $room = $req->room;
         return view('pages.frontend.package', [

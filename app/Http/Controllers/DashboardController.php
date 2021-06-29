@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Log;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 
@@ -53,6 +54,17 @@ class DashboardController extends Controller
 
     public function rental()
     {
-        return view('pages.backend.rental.indexRental');
+        $reservation = Reservation::all();
+        return view('pages.backend.rental.indexRental', [
+            'reservation' => $reservation
+        ]);
+    }
+
+    function getTotalPayment()
+    {
+    }
+
+    function getTotalNotPayment()
+    {
     }
 }
