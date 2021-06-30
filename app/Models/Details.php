@@ -21,4 +21,9 @@ class Details extends Model
         'price',
         'status'
     ];
+
+    public function relationReservation()
+    {
+        return $this->hasOne('App\Models\Reservation', 'id', 'details');
+    }
 }

@@ -21,6 +21,7 @@
                         {{ __('Kode') }}
                     </th>
                     <th>{{ __('Tanggal') }}</th>
+                    <th>{{ __('Jam') }}</th>
                     <th>{{ __('Ruangan') }}</th>
                     <th>{{ __('Paket') }}</th>
                     <th>{{ __('Nama') }}</th>
@@ -42,43 +43,73 @@
                         {{ $r->code }}
                     </td>
                     <td>
+                        {{ date("d-m-Y", strtotime($r->datetime)) }}
+                    </td>
+                    <td>
+                        {{ date("h:i", strtotime($r->datetime)) }}
+                    </td>
+                    <td>
+                        {{ $r->room }}
+                    </td>
+                    <td>
+                        {{ $r->package }}
+                    </td>
+                    <td>
                         {{ $r->name }}
                     </td>
                     <td>
-                        {{-- <div class="btn-group">
+                        {{ $r->name }}
+                    </td>
+                    <td>
+                        {{ $r->name }}
+                    </td>
+                    <td>
+                        {{ $r->name }}
+                    </td>
+                    <td>
+                        {{ $r->name }}
+                    </td>
+                    <td>
+                        {{ $r->name }}
+                    </td>
+                    <td>
+                        {{ $r->name }}
+                    </td>
+                    {{-- <td>
+                        <div class="btn-group">
                             <form id="reset{{ $u->id }}" action="{{ route('users.reset',$u->id) }}" method="POST"
-                        class="d-inline">
-                        @csrf
-                        <button
-                            data-confirm="Apakah Anda Yakin?|Aksi ini tidak 
+                    class="d-inline">
+                    @csrf
+                    <button
+                        data-confirm="Apakah Anda Yakin?|Aksi ini tidak 
                                         dapat dikembalikan dan mengubah password menjadi default yaitu '1234567890'. Apakah ingin melanjutkan?"
-                            data-confirm-yes="document.getElementById('reset{{ $u->id }}').submit();"
-                            class="btn btn-primary">
-                            {{ __('Reset Password') }}
-                        </button>
-                        </form>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                            data-toggle="dropdown" aria-expanded="false">
-                            <span class="sr-only">{{ __('Toggle Dropdown') }}</span>
-                        </button>
-                        <div class="dropdown-menu" x-placement="bottom-start"
-                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(120px, 36px, 0px);">
-                            <a class="dropdown-item" href="{{ route('users.edit',$u->id) }}">
-                                {{ __('Edit') }}
-                            </a>
-                            <form id="del-data{{ $u->id }}" action="{{ route('users.destroy',$u->id) }}" method="POST"
-                                class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <a class="dropdown-item" style="cursor: pointer" data-confirm="Apakah Anda Yakin?|Aksi ini tidak dapat 
+                        data-confirm-yes="document.getElementById('reset{{ $u->id }}').submit();"
+                        class="btn btn-primary">
+                        {{ __('Reset Password') }}
+                    </button>
+                    </form>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-expanded="false">
+                        <span class="sr-only">{{ __('Toggle Dropdown') }}</span>
+                    </button>
+                    <div class="dropdown-menu" x-placement="bottom-start"
+                        style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(120px, 36px, 0px);">
+                        <a class="dropdown-item" href="{{ route('users.edit',$u->id) }}">
+                            {{ __('Edit') }}
+                        </a>
+                        <form id="del-data{{ $u->id }}" action="{{ route('users.destroy',$u->id) }}" method="POST"
+                            class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <a class="dropdown-item" style="cursor: pointer" data-confirm="Apakah Anda Yakin?|Aksi ini tidak dapat 
                                                 dikembalikan. Apakah ingin melanjutkan?"
-                                    data-confirm-yes="document.getElementById('del-data{{ $u->id }}').submit();">
-                                    {{ __('Hapus') }}
-                                </a>
-                            </form>
-                        </div>
-    </div> --}}
-    </td>
+                                data-confirm-yes="document.getElementById('del-data{{ $u->id }}').submit();">
+                                {{ __('Hapus') }}
+                            </a>
+                        </form>
+                    </div>
+    </div>
+    </td> --}}
     </tr>
     @endforeach
     </tbody>

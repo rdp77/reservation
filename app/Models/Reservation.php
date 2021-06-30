@@ -20,4 +20,9 @@ class Reservation extends Model
         'package',
         'check-out'
     ];
+
+    public function relationDetails()
+    {
+        return $this->belongsTo('App\Models\Details', 'details', 'id');
+    }
 }

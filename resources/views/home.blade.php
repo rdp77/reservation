@@ -13,7 +13,7 @@
                     <i class="fas fa-calendar"></i>
                 </div>
             </div>
-            <input class="form-control datepicker" name="tgl" tabindex="1" required autofocus>
+            <input class="form-control datepicker" name="tgl" tabindex="1" required>
         </div>
         @error('tgl')
         <div class="invalid-feedback">
