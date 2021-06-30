@@ -43,16 +43,15 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 Route::resource('rental', RentalController::class)->only([
     'index', 'show'
 ]);
-Route::post('/paid/{id}', [RentalController::class, 'paid'])
-    ->name('reservation.paid');
-Route::post('/check-out/{id}', [RentalController::class, 'checkOut'])
-    ->name('reservation.checkout');
 Route::get('/rental-payment', [RentalController::class, 'payment'])
     ->name('rental.payment');
 Route::get('/rental-notpayment', [RentalController::class, 'notPayment'])
     ->name('rental.notpayment');
 // Function Backend
-
+Route::post('/paid/{id}', [RentalController::class, 'paid'])
+    ->name('reservation.paid');
+Route::post('/check-out/{id}', [RentalController::class, 'checkOut'])
+    ->name('reservation.checkout');
 
 // Logging
 Route::get('/log', [DashboardController::class, 'log'])

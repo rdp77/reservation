@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Details;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Builder;
 
 class RentalController extends Controller
@@ -80,10 +82,29 @@ class RentalController extends Controller
 
     public function paid($id)
     {
+        $reservation = Reservation::find($id);
+        $details = Details::find($reservation->details);
+        $details->status = 'Lunas';
+        $details->save();
+
+        return Redirect::route('rental.index')
+            ->with([
+                'status' => 'Kode reservasi ' . $reservation->code . ' telah melunasi pembayarannya',
+                'type' => 'info'
+            ]);
     }
 
     public function checkOut($id)
     {
+        $reservation = Reservation::find($id);
+        $reservation->check_out = 'Iya';
+        $reservation->save();
+
+        return Redirect::route('rental.index')
+            ->with([
+                'status' => 'Kode reservasi ' . $reservation->code . ' telah melakukan check-out',
+                'type' => 'info'
+            ]);
     }
 
     function getTotal($status)
