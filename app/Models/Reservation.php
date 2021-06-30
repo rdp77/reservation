@@ -30,4 +30,9 @@ class Reservation extends Model
     {
         return $this->belongsTo('App\Models\Room', 'room', 'id');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
 }

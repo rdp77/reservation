@@ -3,6 +3,7 @@
 @section('titleContent', __('auth.login'))
 
 @section('content')
+@include('layouts.backend.components.notification')
 <form method="POST" action="{{ route('reservation.check') }}" class="needs-validation">
     @csrf
     <div class="form-group">

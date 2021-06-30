@@ -27,6 +27,7 @@ Route::post('/check-in', [HomeController::class, 'checkIn'])
     ->name('reservation.checkIn');
 Route::post('/payment', [HomeController::class, 'payment'])
     ->name('reservation.payment');
+Route::get('/status/{code}', [HomeController::class, 'status']);
 Route::match(['get'], 'package', function () {
     return Redirect::route('home');
 });
@@ -36,6 +37,7 @@ Route::match(['get'], 'check-in', function () {
 Route::match(['get'], 'payment', function () {
     return Redirect::route('home');
 });
+Route::permanentRedirect('/status', '/');
 
 // Back End
 Route::get('/dashboard', [DashboardController::class, 'index'])

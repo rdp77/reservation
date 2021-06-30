@@ -8,6 +8,7 @@ use App\Models\Room;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -27,9 +28,16 @@ class HomeController extends Controller
 
         $date = date("Y-m-d h:i", strtotime($req->tgl . $req->session));
         $room = $req->room;
-        return view('pages.frontend.package', [
-            'date' => $date, 'room' => $room
-        ]);
+
+        return $this->checkAvailable($date, $room) == null ?
+            view('pages.frontend.package', [
+                'date' => $date, 'room' => $room
+            ]) :
+            Redirect::route('home')->with([
+                'status' => 'Maaf untuk waktu dan tempat sudah disewa, 
+                silahkan pilih waktu dan tempat lain',
+                'type' => 'info'
+            ]);
     }
 
     public function checkIn(Request $req)
@@ -84,6 +92,28 @@ class HomeController extends Controller
             'price' => $price,
             'code' => $req->code
         ]);
+    }
+
+    public function checkAvailable($datetime, $room)
+    {
+        return DB::table('reservation')
+            ->join('details', 'reservation.details', '=', 'details.id')
+            ->select(
+                'reservation.datetime',
+                'reservation.room',
+                'details.status'
+            )
+            ->where('reservation.datetime', $datetime)
+            ->where('reservation.room', $room)
+            ->where('details.status', 'Belum Lunas')
+            ->first();
+    }
+
+    public function status(Reservation $code)
+    {
+        $post = $code->with('relationDetails', 'relationRoom')
+            ->first();
+        return view('pages.frontend.status', ['post' => $post]);
     }
 
     public function getRandom()

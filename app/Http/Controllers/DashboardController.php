@@ -7,7 +7,6 @@ use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
