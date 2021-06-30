@@ -71,31 +71,43 @@
                         {{ $r->relationDetails->status }}
                     </td>
                     <td>
-                        <a href="{{ route('rental.show',$r->id) }}" class="btn btn-primary btn-action mb-1 mt-1"
-                            data-toggle="tooltip" title="Lihat Detail"><i class="fas fa-eye"></i></a>
-                        @if ($r->relationDetails->status == 'Belum Lunas')
-                        <form id="acc-{{ $r->id }}" action="{{ route('reservation.paid',$r->id) }}" method="POST"
-                            class="d-inline">
-                            @csrf
-                            <a class="btn btn-success btn-action mb-1 mt-1" style="cursor: pointer"
-                                data-toggle="tooltip" title="Terima Pembayaran" data-confirm="Terima pembayaran?|Aksi ini akan 
-                                menyetujui pembayaran dan tidak dapat dikembalikan. Apakah ingin melanjutkan?"
-                                data-confirm-yes="document.getElementById('acc-{{ $r->id }}').submit();">
-                                <i class="fas fa-money-bill-alt"></i>
+                        <div class="btn-group">
+                            <a href="{{ route('rental.show',$r->id) }}" class="btn btn-primary">
+                                {{ __('Lihat Detail') }}
                             </a>
-                        </form>
-                        @elseif($r->check_out == 'Tidak')
-                        <form id="co-{{ $r->id }}" action="{{ route('reservation.checkout',$r->id) }}" method="POST"
-                            class="d-inline">
-                            @csrf
-                            <a class="btn btn-success btn-action mb-1 mt-1" style="cursor: pointer"
-                                data-toggle="tooltip" title="Check-Out" data-confirm="Apakah yakin akan melakukan 
-                                check-out?|Aksi ini tidak dapat dikembalikan. Apakah ingin melanjutkan?"
-                                data-confirm-yes="document.getElementById('co-{{ $r->id }}').submit();">
-                                <i class="fas fa-sign-out-alt"></i>
-                            </a>
-                        </form>
-                        @endif
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <span class="sr-only">{{ __('Toggle Dropdown') }}</span>
+                            </button>
+                            <div class="dropdown-menu" x-placement="bottom-start"
+                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(120px, 36px, 0px);">
+                                <a href="{{ url('status').__('/').Str::slug($r->code) }}" class="dropdown-item"
+                                    target="_blank">
+                                    {{ __('Lihat Halaman') }}
+                                </a>
+                                @if ($r->relationDetails->status == 'Belum Lunas')
+                                <form id="acc-{{ $r->id }}" action="{{ route('reservation.paid',$r->id) }}"
+                                    method="POST" class="d-inline">
+                                    @csrf
+                                    <a class="dropdown-item" style="cursor: pointer" data-confirm="Terima pembayaran?|Aksi ini 
+                                    akan menyetujui pembayaran dan tidak dapat dikembalikan. Apakah ingin melanjutkan?"
+                                        data-confirm-yes="document.getElementById('acc-{{ $r->id }}').submit();">
+                                        {{ __('Terima Pembayaran') }}
+                                    </a>
+                                </form>
+                                @elseif($r->check_out == 'Tidak')
+                                <form id="co-{{ $r->id }}" action="{{ route('reservation.checkout',$r->id) }}"
+                                    method="POST" class="d-inline">
+                                    @csrf
+                                    <a class="dropdown-item" style="cursor: pointer" data-confirm="Apakah yakin akan melakukan check-out?|Aksi ini tidak dapat dikembalikan. 
+                                        Apakah ingin melanjutkan?"
+                                        data-confirm-yes="document.getElementById('co-{{ $r->id }}').submit();">
+                                        {{ __("Check-Out") }}
+                                    </a>
+                                </form>
+                                @endif
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @endforeach

@@ -85,7 +85,7 @@ class HomeController extends Controller
             'room' => $req->room,
             'details' => $this->countID(),
             'package' => $req->package,
-            'check-out' => 'Tidak'
+            'check_out' => 'Tidak'
         ]);
 
         return view('pages.frontend.payment', [

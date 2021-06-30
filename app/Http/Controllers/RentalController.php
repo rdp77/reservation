@@ -58,6 +58,7 @@ class RentalController extends Controller
             ->whereHas('relationDetails', function (Builder $query) {
                 $query->where('status', '=', 'Lunas');
             })
+            ->where('check_out', 'Tidak')
             ->get();
         return view('pages.backend.rental.indexRental', [
             'reservation' => $reservation,
@@ -115,6 +116,7 @@ class RentalController extends Controller
             ->select('*')
             ->join('details', 'reservation.details', '=', 'details.id')
             ->where('details.status', '=', $status)
+            ->where('check_out', 'Tidak')
             ->count();
     }
 
