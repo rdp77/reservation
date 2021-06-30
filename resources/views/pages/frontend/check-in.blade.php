@@ -35,7 +35,8 @@
                 <div class="form-group">
                     <label>{{ __('Sesi Acara') }}<code>*</code></label>
                     <input value="{{ date("h:i", strtotime($date)) }}"
-                        class="form-control @error('time') is-invalid @enderror" type="time" name="session" required>
+                        class="form-control @error('time') is-invalid @enderror" type="time" min="06:00" max="24:00"
+                        name="session" required>
                     @error('session')
                     <div class="invalid-feedback">
                         {{ $message }}

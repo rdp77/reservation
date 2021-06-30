@@ -27,7 +27,7 @@
         <div class="d-block">
             <label class="control-label">{{ __('Sesi Acara') }}</label>
         </div>
-        <input class="form-control" type="time" name="session" tabindex="2" required>
+        <input class="form-control" type="time" min="06:00" max="24:00" name="session" tabindex="2" required>
         @error('session')
         <div class="invalid-feedback">
             {{ $message }}
