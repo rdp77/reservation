@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Details;
 use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -43,10 +44,12 @@ class RentalController extends Controller
     {
         $reservation = Reservation::find($id)
             ->with('relationDetails', 'relationRoom')
-            ->get();
+            ->first();
+        $room = Room::all();
 
         return view('pages.backend.rental.showRental', [
-            'reservation' => $reservation
+            'reservation' => $reservation,
+            'rooms' => $room
         ]);
     }
 
