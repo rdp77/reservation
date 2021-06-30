@@ -24,7 +24,7 @@ class CreateReservation extends Migration
                 'PAKET NGGRAGAS "B"', 'PAKET NGGRAGAS "C"',
                 'PAKET NGGRAGAS "D"', 'PAKET NGGRAGAS "E"'
             ]);
-            $table->enum('check-out', ['Iya', 'Tidak']);
+            $table->enum('check_out', ['Iya', 'Tidak']);
         });
     }
 

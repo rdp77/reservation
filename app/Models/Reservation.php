@@ -18,11 +18,16 @@ class Reservation extends Model
         'room',
         'details',
         'package',
-        'check-out'
+        'check_out'
     ];
 
     public function relationDetails()
     {
         return $this->belongsTo('App\Models\Details', 'details', 'id');
+    }
+
+    public function relationRoom()
+    {
+        return $this->belongsTo('App\Models\Room', 'room', 'id');
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RentalController;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -39,8 +40,13 @@ Route::match(['get'], 'payment', function () {
 // Back End
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
-Route::get('/rental', [DashboardController::class, 'rental'])
-    ->name('rental');
+Route::resource('rental', RentalController::class)->only([
+    'index', 'show'
+]);
+// Function Backend
+
+
+// Logging
 Route::get('/log', [DashboardController::class, 'log'])
     ->name('dashboard.log');
 

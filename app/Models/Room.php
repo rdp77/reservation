@@ -15,4 +15,9 @@ class Room extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function relationReservation()
+    {
+        return $this->hasOne('App\Models\Reservation', 'id', 'room');
+    }
 }

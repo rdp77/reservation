@@ -16,9 +16,10 @@ class DashboardController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(RentalController $RentalController)
     {
         $this->middleware('auth')->except('createLog');
+        $this->RentalController = $RentalController;
     }
 
     /**
@@ -33,8 +34,8 @@ class DashboardController extends Controller
             'log' => Log::limit(7)
                 ->get(),
             'rental' => Reservation::count(),
-            'notPayment' => $this->getTotalNotPayment(),
-            'payment' => $this->getTotalPayment(),
+            'notPayment' => $this->RentalController->getTotalNotPayment(),
+            'payment' => $this->RentalController->getTotalPayment(),
             'users' => User::count()
         ]);
     }
@@ -56,35 +57,5 @@ class DashboardController extends Controller
             'ip' => $ip,
             'added_at' => date("Y-m-d H:i:s"),
         ]);
-    }
-
-    public function rental()
-    {
-        $reservation = Reservation::all();
-        return view('pages.backend.rental.indexRental', [
-            'reservation' => $reservation,
-            'rental' => Reservation::count(),
-            'notPayment' => $this->getTotalNotPayment(),
-            'payment' => $this->getTotalPayment(),
-        ]);
-    }
-
-    function getTotal($status)
-    {
-        return DB::table('reservation')
-            ->select('*')
-            ->join('details', 'reservation.details', '=', 'details.id')
-            ->where('details.status', '=', $status)
-            ->count();
-    }
-
-    function getTotalPayment()
-    {
-        return $this->getTotal('Lunas');
-    }
-
-    function getTotalNotPayment()
-    {
-        return $this->getTotal('Belum Lunas');
     }
 }
