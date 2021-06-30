@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class RentalController extends Controller
 {
@@ -50,8 +51,10 @@ class RentalController extends Controller
     public function payment()
     {
         $reservation = Reservation::with('relationDetails', 'relationRoom')
+            ->whereHas('relationDetails', function (Builder $query) {
+                $query->where('status', '=', 'Lunas');
+            })
             ->get();
-        dd($reservation);
         return view('pages.backend.rental.indexRental', [
             'reservation' => $reservation,
             'rental' => Reservation::count(),
@@ -63,6 +66,9 @@ class RentalController extends Controller
     public function notPayment()
     {
         $reservation = Reservation::with('relationDetails', 'relationRoom')
+            ->whereHas('relationDetails', function (Builder $query) {
+                $query->where('status', '=', 'Belum Lunas');
+            })
             ->get();
         return view('pages.backend.rental.indexRental', [
             'reservation' => $reservation,
@@ -70,6 +76,14 @@ class RentalController extends Controller
             'notPayment' => $this->getTotalNotPayment(),
             'payment' => $this->getTotalPayment(),
         ]);
+    }
+
+    public function paid($id)
+    {
+    }
+
+    public function checkOut($id)
+    {
     }
 
     function getTotal($status)

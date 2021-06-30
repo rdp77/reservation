@@ -4,6 +4,7 @@
 @section('breadcrumb', __('Data'))
 @section('morebreadcrumb')
 <div class="breadcrumb-item active">{{ __('Penyewaan') }}</div>
+<div class="breadcrumb-item active">{{ __('Semua Penyewa') }}</div>
 @endsection
 
 @section('content')
@@ -25,8 +26,6 @@
                     <th>{{ __('Ruangan') }}</th>
                     <th>{{ __('Paket') }}</th>
                     <th>{{ __('Nama') }}</th>
-                    {{-- <th>{{ __('Alamat') }}</th>
-                    <th>{{ __('Email') }}</th> --}}
                     <th>{{ __('No HP') }}</th>
                     <th>{{ __('Harga') }}</th>
                     <th>{{ __('Status') }}</th>
@@ -57,12 +56,6 @@
                     <td>
                         {{ $r->relationDetails->name }}
                     </td>
-                    {{-- <td>
-                        {{ $r->relationDetails->address }}
-                    </td>
-                    <td>
-                        {{ $r->relationDetails->email }}
-                    </td> --}}
                     <td>
                         {{ $r->relationDetails->phone }}
                         @if ($r->relationDetails->wa == 'Ada')
@@ -87,36 +80,12 @@
                         <a href="#" class="btn btn-success btn-action mb-1 mt-1" data-toggle="tooltip"
                             title="Check-Out"><i class="fas fa-sign-out-alt"></i></a>
                         @endif
-                        {{-- <div class="btn-group">
-                            <a href="#" class="btn btn-primary">
-                                {{ __('Lihat Detail') }}
-                        </a>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                            data-toggle="dropdown" aria-expanded="false">
-                            <span class="sr-only">{{ __('Toggle Dropdown') }}</span>
-                        </button>
-                        <div class="dropdown-menu" x-placement="bottom-start"
-                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(120px, 36px, 0px);">
-                            <a class="dropdown-item" href="#">
-                                {{ __('Terima Pembayaran') }}
-                            </a>
-                            <form id="del-data{{ $u->id }}" action="{{ route('users.destroy',$u->id) }}" method="POST"
-                                class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <a class="dropdown-item" style="cursor: pointer" data-confirm="Apakah Anda Yakin?|Aksi ini tidak dapat 
-                                                dikembalikan. Apakah ingin melanjutkan?"
-                                    data-confirm-yes="document.getElementById('del-data{{ $u->id }}').submit();">
-                                    {{ __('Hapus') }}
-                                </a>
-                            </form>
-                        </div>
-    </div> --}}
-    </td>
-    </tr>
-    @endforeach
-    </tbody>
-    </table>
-</div>
+
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection
