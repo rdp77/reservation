@@ -13,6 +13,10 @@
         {{ __(' Konfirmasi pembayaran akan kami kirimkan via whatsapp, sms, 
         ataupun email yang sudah tertaut sebelumnya. Kode pemesanan') }}
         <mark>{{ $code }}</mark>
+        {{ __(' dan bisa diakses melalui url ') }}
+        <a href="{{ url('status').__('/').Str::slug($code) }}" target="_blank">
+            {{ __('ini') }}
+        </a>
     </p>
     <a href="#" class="mt-4 bb">
         {{ __('Pembayaran masih belum terkonfirmasi? Hubungi CS kami') }}
