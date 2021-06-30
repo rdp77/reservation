@@ -26,7 +26,8 @@ class RentalController extends Controller
 
     public function index()
     {
-        $reservation = Reservation::with('relationDetails', 'relationRoom')->get();
+        $reservation = Reservation::with('relationDetails', 'relationRoom')
+            ->get();
         return view('pages.backend.rental.indexRental', [
             'reservation' => $reservation,
             'rental' => Reservation::count(),
@@ -38,7 +39,8 @@ class RentalController extends Controller
     public function show($id)
     {
         $reservation = Reservation::find($id)
-            ->with('relationDetails', 'relationRoom')->get();
+            ->with('relationDetails', 'relationRoom')
+            ->get();
 
         return view('pages.backend.rental.showRental', [
             'reservation' => $reservation
@@ -47,10 +49,27 @@ class RentalController extends Controller
 
     public function payment()
     {
+        $reservation = Reservation::with('relationDetails', 'relationRoom')
+            ->get();
+        dd($reservation);
+        return view('pages.backend.rental.indexRental', [
+            'reservation' => $reservation,
+            'rental' => Reservation::count(),
+            'notPayment' => $this->getTotalNotPayment(),
+            'payment' => $this->getTotalPayment(),
+        ]);
     }
 
     public function notPayment()
     {
+        $reservation = Reservation::with('relationDetails', 'relationRoom')
+            ->get();
+        return view('pages.backend.rental.indexRental', [
+            'reservation' => $reservation,
+            'rental' => Reservation::count(),
+            'notPayment' => $this->getTotalNotPayment(),
+            'payment' => $this->getTotalPayment(),
+        ]);
     }
 
     function getTotal($status)

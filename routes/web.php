@@ -43,6 +43,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 Route::resource('rental', RentalController::class)->only([
     'index', 'show'
 ]);
+Route::get('/rental/payment', [RentalController::class, 'payment'])
+    ->name('rental.payment');
+Route::get('/rental/notpayment', [RentalController::class, 'notPayment'])
+    ->name('rental.notpayment');
 // Function Backend
 
 
