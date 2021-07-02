@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $room = Room::all();
-        return view('home', ['room' => $room]);
+        return view('home', ['room' => $room,]);
     }
 
     public function package(Request $req)

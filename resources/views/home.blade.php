@@ -53,22 +53,10 @@
         @enderror
     </div>
 
-    {{-- <div class="form-group">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" name="remember" class="custom-control-input" tabindex="3"
-                id="remember-me">
-            <label class="custom-control-label" for="remember-me">Remember Me</label>
-        </div>
-    </div> --}}
-
     <div class="form-group text-right">
         <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
             {{ __('Sewa Tempat') }}
         </button>
     </div>
-
-    {{-- <div class="mt-5 text-center">
-        Don't have an account? <a href="auth-register.html">Create new one</a>
-    </div> --}}
 </form>
 @endsection
