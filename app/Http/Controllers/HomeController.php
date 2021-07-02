@@ -30,13 +30,13 @@ class HomeController extends Controller
         $room = $req->room;
 
         return $this->checkAvailable($date, $room) == null ?
-            view('pages.frontend.package', [
-                'date' => $date, 'room' => $room
-            ]) :
             Redirect::route('home')->with([
                 'status' => 'Maaf untuk waktu dan tempat sudah disewa, 
-                silahkan pilih waktu dan tempat lain',
+            silahkan pilih waktu dan tempat lain',
                 'type' => 'info'
+            ]) :
+            view('pages.frontend.package', [
+                'date' => $date, 'room' => $room
             ]);
     }
 
