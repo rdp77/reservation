@@ -112,6 +112,7 @@ class HomeController extends Controller
     public function status(Reservation $code)
     {
         $post = $code->with('relationDetails', 'relationRoom')
+            ->where('code', $code->code)
             ->first();
         return view('pages.frontend.status', ['post' => $post]);
     }
