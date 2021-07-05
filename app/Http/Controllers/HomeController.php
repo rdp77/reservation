@@ -28,11 +28,11 @@ class HomeController extends Controller
 
         $date = date("Y-m-d h:i", strtotime($req->tgl . $req->session));
         $room = $req->room;
-
-        return $this->checkAvailable($date, $room) == null ?
+        // dd($this->checkAvailable($date, $room));
+        return $this->checkAvailable($date, $room) != null ?
             Redirect::route('home')->with([
-                'status' => 'Maaf untuk waktu dan tempat sudah disewa, 
-            silahkan pilih waktu dan tempat lain',
+                'status' => 'Maaf untuk waktu dan tempat sudah disewa, silahkan 
+            pilih waktu dan tempat lain',
                 'type' => 'info'
             ]) :
             view('pages.frontend.package', [
@@ -105,13 +105,14 @@ class HomeController extends Controller
             )
             ->where('reservation.datetime', $datetime)
             ->where('reservation.room', $room)
-            ->where('details.status', 'Belum Lunas')
+            ->where('details.status', 'Lunas')
             ->first();
     }
 
     public function status(Reservation $code)
     {
         $post = $code->with('relationDetails', 'relationRoom')
+            ->where('code', $code->code)
             ->first();
         return view('pages.frontend.status', ['post' => $post]);
     }

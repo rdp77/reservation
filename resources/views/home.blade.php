@@ -4,7 +4,7 @@
 
 @section('content')
 @include('layouts.backend.components.notification')
-<form method="POST" action="{{ route('reservation.check') }}" class="needs-validation">
+<form method="POST" action="{{ route('reservation.check') }}">
     @csrf
     <div class="form-group">
         <label>{{ __('Tanggal') }}</label>
