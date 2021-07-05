@@ -16,5 +16,5 @@ Route::get('/change-password', [UsersController::class, 'changePassword'])
 Route::post('/reset', [NewPasswordController::class, 'changePassword'])
     ->name('changePassword');
 // Users Name
-Route::post('/change-name', [UsersController::class, 'changeName'])
+Route::get('/change-name', [UsersController::class, 'changeName'])
     ->name('users.name');
