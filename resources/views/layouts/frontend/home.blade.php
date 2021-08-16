@@ -16,6 +16,10 @@
                             dan tempat yang ada') }}
                         </p>
                         @yield('content')
+                        <a href="{{ route('login') }}" class="btn btn-primary text-white btn-block"
+                            style="cursor: pointer">
+                            {{ __('Login') }}
+                        </a>
                         <div class="text-center mt-5 text-small">
                             {{ __('Copyright') }}
                             <span style="color: grey">
@@ -40,14 +44,6 @@
                                     {{ __('Surabaya, Indonesia') }}
                                 </h5>
                             </div>
-                            {{ __('Photo by') }}
-                            <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">
-                                {{ __('Justin Kauffman') }}
-                            </a>
-                            {{ __('on') }}
-                            <a class="text-light bb" target="_blank" href="https://unsplash.com">
-                                {{ __('Unsplash') }}
-                            </a>
                         </div>
                     </div>
                 </div>
