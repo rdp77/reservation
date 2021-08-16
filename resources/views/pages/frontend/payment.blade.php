@@ -8,9 +8,11 @@
     <h2><mark>{{ __('Rp. ').number_format($price) }}</mark></h2>
     <p class="lead">
         {{ __('Lakukan pembayaran sejumlah nominal yang sudah 
-        ditentukan diatas, dengan menggunakan metode pembayaran bank BCA atas nama') }}
-        <u>{{ __('Talentitya Ryzabel.') }}</u>
-        {{ __(' Konfirmasi pembayaran akan kami kirimkan via whatsapp, sms, 
+        ditentukan diatas, menggunakan metode pembayaran bank BCA atas nama') }}
+        <u>{{ __('Talentitya Ryzabella Insani') }}</u>
+        {{ __(' dengan No Rekening ') }}
+        <mark>{{ __('01015781') }}</mark>
+        {{ __('. Konfirmasi pembayaran akan kami kirimkan via whatsapp, sms, 
         ataupun email yang sudah tertaut sebelumnya. Kode pemesanan') }}
         <mark>{{ $code }}</mark>
         {{ __(' dan bisa diakses melalui url ') }}
@@ -18,7 +20,7 @@
             {{ __('ini') }}
         </a>
     </p>
-    <a href="#" class="mt-4 bb">
+    <a href="https://api.whatsapp.com/send?phone=6282330620982" class="mt-4 bb" target="_blank">
         {{ __('Pembayaran masih belum terkonfirmasi? Hubungi CS kami') }}
     </a>
 </div>

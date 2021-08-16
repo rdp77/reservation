@@ -27,7 +27,7 @@
             {{ __('Anda Sudah Melakukan Check-Out') }}
             @endif
         </h2>
-        <a href="#" class="mt-4 bb">
+        <a href="https://api.whatsapp.com/send?phone=6282330620982" class="mt-4 bb" target="_blank">
             {{ __('Hubungi CS kami') }}
         </a>
     </div>
